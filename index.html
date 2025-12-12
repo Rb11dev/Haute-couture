@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Haute Couture | Timeless Luxury Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --ivory: #F7F3E9;
+      --parchment: #EFE6D6;
+      --charcoal: #2A2A2A;
+      --taupe: #8B7D6B;
+      --bronze: #CD7F32;
+      --gold: #B8860B;
+      --dark-gold: #8B6914;
+      --transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+      --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-elegant: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --border-radius-sm: 0px;
+      --border-radius: 0px;
+      --border-radius-lg: 0px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.8;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6, .logo, .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: var(--taupe);
+      font-weight: 300;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4%;
+    }
+
+    .section-padding {
+      padding: 6rem 0;
+    }
+
+    /* 🏛️ मोबाइल ऑप्टिमाइज्ड हेडर 🏛️ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--ivory);
+      transition: var(--transition);
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-subtle);
+      height: 70px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      height: 100%;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: var(--charcoal);
+      font-weight: 500;
+      letter-spacing: 1px;
+      position: relative;
+      font-style: italic;
+      z-index: 1001;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      right: -15px;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .header-icon {
+      font-size: 1.2rem;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--charcoal);
+      padding: 8px;
+    }
+
+    .header-icon:hover {
+      color: var(--gold);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--gold);
+      color: var(--ivory);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .mobile-toggle {
+      display: block;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--charcoal);
+      z-index: 1001;
+      padding: 8px;
+    }
+
+    /* 📱 मोबाइल नेविगेशन मेनू 📱 */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      height: 100vh;
+      background: var(--ivory);
+      z-index: 999;
+      transition: var(--transition);
+      padding: 6rem 2rem 2rem;
+      box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+      left: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .mobile-nav-links li {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 1.5rem;
+    }
+
+    .mobile-nav-links a {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--charcoal);
+      display: block;
+      padding: 0.5rem 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--gold);
+      padding-left: 10px;
+    }
+
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 998;
+      display: none;
+      backdrop-filter: blur(3px);
+    }
+
+    .nav-overlay.active {
+      display: block;
+    }
+
+    /* 🎨 मोबाइल हीरो सेक्शन 🎨 */
+    .hero {
+      height: 90vh;
+      min-height: 600px;
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                  url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: var(--ivory);
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .hero-content {
+      max-width: 100%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 0.4s;
+      padding: 0 5%;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      max-width: 100%;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 1px solid var(--ivory);
+      color: var(--ivory);
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--ivory);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .btn:hover {
+      color: var(--charcoal);
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ivory);
+    }
+
+    .btn-primary::before {
+      background: var(--ivory);
+    }
+
+    .btn-primary:hover {
+      color: var(--charcoal);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--ivory);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+      40% {transform: translateX(-50%) translateY(-8px);}
+      60% {transform: translateX(-50%) translateY(-4px);}
+    }
+
+    /* 🏛️ सेक्शन हेडर्स 🏛️ */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .section-description {
+      max-width: 100%;
+      margin: 2rem auto 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      padding: 0 5%;
+    }
+
+    /* 👜 मोबाइल कलेक्शन्स सेक्शन 👜 */
+    .collections {
+      background: var(--parchment);
+      position: relative;
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .collection-card {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+      background: var(--ivory);
+    }
+
+    .collection-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .collection-card:hover .collection-image {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .collection-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+      color: var(--ivory);
+      opacity: 1;
+    }
+
+    .collection-name {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    .collection-count {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* 👗 मोबाइल प्रोडक्ट्स सेक्शन 👗 */
+    .products {
+      background: var(--ivory);
+    }
+
+    .products-filter {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0 5% 1rem;
+      margin-left: -5%;
+      margin-right: -5%;
+      width: calc(100% + 10%);
+    }
+
+    .products-filter::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      background: none;
+      border: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      position: relative;
+      color: var(--taupe);
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+    }
+
+    .filter-btn.active {
+      color: var(--charcoal);
+    }
+
+    .filter-btn.active::after {
+      width: 100%;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--parchment);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-elegant);
+    }
+
+    .product-image {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      background: var(--ivory);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--gold);
+      color: var(--ivory);
+      padding: 0.3rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      z-index: 2;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .product-info {
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .product-category {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .product-price .old-price {
+      text-decoration: line-through;
+      color: var(--taupe);
+      margin-right: 0.5rem;
+      font-weight: 300;
+    }
+
+    .product-actions {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 0.8rem;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-actions {
+      opacity: 1;
+    }
+
+    .product-btn {
+      width: 40px;
+      height: 40px;
+      background: var(--ivory);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .product-btn:hover {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border-color: var(--charcoal);
+    }
+
+    /* 🎨 मोबाइल एडिटोरियल सेक्शन 🎨 */
+    .editorial {
+      background: var(--charcoal);
+      color: var(--ivory);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .editorial::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/paper.png');
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .editorial-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .editorial-image {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .editorial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+
+    .editorial-text {
+      padding-right: 0;
+    }
+
+    .editorial-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .editorial-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .editorial-description {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+
+    /* ✨ मोबाइल फीचर्स सेक्शन ✨ */
+    .features {
+      background: var(--parchment);
+      position: relative;
+    }
+
+    .features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--ivory);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-elegant);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .feature-text {
+      color: var(--taupe);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* 📬 मोबाइल न्यूजलेटर सेक्शन 📬 */
+    .newsletter {
+      background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                  url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60') center/cover no-repeat;
+      color: var(--ivory);
+      text-align: center;
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .newsletter-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-description {
+      font-size: 1.1rem;
+      max-width: 100%;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      padding: 0 5%;
+    }
+
+    .newsletter-form {
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--ivory);
+      font-size: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      outline: none;
+      transition: var(--transition);
+      margin-bottom: 1rem;
+      border-radius: 0;
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--gold);
+    }
+
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    .newsletter-btn {
+      padding: 1.2rem 2rem;
+      background: var(--gold);
+      color: var(--ivory);
+      border: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--dark-gold);
+    }
+
+    /* 🏛️ मोबाइल फुटर 🏛️ */
+    .footer {
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 5rem 0 2rem;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/black-paper.png');
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .footer-about {
+      font-size: 1rem;
+      opacity: 0.8;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      position: relative;
+      padding-bottom: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .footer-links {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 8px;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 🛒 मोबाइल कार्ट मोडल 🛒 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100%;
+      background: var(--ivory);
+      padding: 4rem 1.5rem 2rem;
+      overflow-y: auto;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--taupe);
+      z-index: 2001;
+    }
+
+    .close-modal:hover {
+      color: var(--charcoal);
+      transform: rotate(90deg);
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .modal-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .cart-items {
+      margin-bottom: 3rem;
+    }
+
+    .cart-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .cart-item-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: var(--parchment);
+    }
+
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cart-item-name {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .cart-item-price {
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .cart-item-remove {
+      color: var(--taupe);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+    }
+
+    .cart-item-remove:hover {
+      color: var(--charcoal);
+    }
+
+    .cart-summary {
+      background: var(--parchment);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .summary-total {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      border-bottom: none;
+      padding-top: 1rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: var(--charcoal);
+      color: var(--ivory);
+      border: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 2rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .checkout-btn:hover {
+      background: var(--gold);
+      color: var(--ivory);
+      transform: translateY(-2px);
+    }
+
+    /* 🔍 मोबाइल सर्च मोडल 🔍 */
+    .search-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.97);
+      z-index: 2001;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .search-modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .search-title {
+      font-size: 2rem;
+      color: var(--ivory);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .search-form {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1.2rem 1.5rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--gold);
+      color: var(--ivory);
+      font-size: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-bottom-color: var(--ivory);
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+
+    .search-submit {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--gold);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 1rem;
+      transition: var(--transition);
+    }
+
+    .search-submit:hover {
+      color: var(--ivory);
+    }
+
+    .search-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 1.8rem;
+      color: var(--ivory);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .search-close:hover {
+      color: var(--gold);
+      transform: rotate(90deg);
+    }
+
+    /* 📱 टैबलेट रेस्पॉन्सिव 📱 */
+    @media (min-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 0;
+      }
+      
+      .logo {
+        font-size: 2.2rem;
+      }
+      
+      .mobile-toggle {
+        display: none;
+      }
+      
+      .nav-desktop {
+        display: flex;
+        gap: 2.5rem;
+      }
+      
+      .mobile-nav, .nav-overlay {
+        display: none !important;
+      }
+      
+      .hero-title {
+        font-size: 4rem;
+      }
+      
+      .hero-description {
+        font-size: 1.3rem;
+      }
+      
+      .section-title {
+        font-size: 3rem;
+      }
+      
+      .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .collection-card {
+        height: 500px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .editorial-content {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .editorial-image {
+        height: 500px;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .newsletter-form {
+        flex-direction: row;
+      }
+      
+      .newsletter-input {
+        margin-bottom: 0;
+        margin-right: 1rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .modal-content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 1100px;
+        max-height: 90vh;
+        min-height: auto;
+        padding: 4rem;
+      }
+      
+      .cart-item {
+        flex-direction: row;
+      }
+      
+      .cart-item-image {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    /* 🖥️ डेस्कटॉप रेस्पॉन्सिव 🖥️ */
+    @media (min-width: 1024px) {
+      .header {
+        padding: 1.5rem 0;
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: none;
+        height: auto;
+      }
+      
+      .header.scrolled {
+        background: var(--ivory);
+        padding: 1.2rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-subtle);
+      }
+      
+      .hero {
+        margin-top: 0;
+      }
+      
+      .collections-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+      }
+      
+      .product-image {
+        height: 400px;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* ✨ एनिमेशन्स ✨ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 🔄 क्वांटिटी कंट्रोल्स 🔄 */
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .quantity-btn {
+      width: 32px;
+      height: 32px;
+      background: var(--ivory);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .quantity-btn:hover {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border-color: var(--charcoal);
+    }
+
+    /* 🎭 क्लासिक बॉर्डर इफेक्ट 🎭 */
+    .classic-border {
+      position: relative;
+    }
+
+    .classic-border::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 📲 मोबाइल टच फ्रेंडली स्टाइल्स 📲 */
+    .touch-friendly {
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+    
+    .touch-friendly-btn {
+      min-height: 48px;
+      min-width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* 🔥 स्पेशल मोबाइल फीचर्स 🔥 */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      color: var(--ivory);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      background: var(--dark-gold);
+      transform: translateY(-5px);
+    }
+    
+    /* 📱 स्मॉल मोबाइल डिवाइस के लिए 📱 */
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* 📵 ओरिएंटेशन चेंज के लिए 📵 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 0;
+      }
+      
+      .header {
+        position: absolute;
+      }
+      
+      .hero-content {
+        padding-top: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🏛️ मोबाइल ऑप्टिमाइज्ड हेडर 🏛️ -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">HAUTE COUTURE</a>
+      
+      <nav class="nav-desktop">
+        <a href="#collections">Collections</a>
+        <a href="#products">Creations</a>
+        <a href="#editorial">Heritage</a>
+        <a href="#about">Craftsmanship</a>
+        <a href="#contact">Atelier</a>
+      </nav>
+      
+      <div class="header-actions">
+        <div class="header-icon" id="searchBtn">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="header-icon" id="wishlistBtn">
+          <i class="far fa-heart"></i>
+          <span class="cart-count">2</span>
+        </div>
+        <div class="header-icon" id="cartBtn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">3</span>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 📱 मोबाइल नेविगेशन मेनू 📱 -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#products">Creations</a></li>
+      <li><a href="#editorial">Heritage</a></li>
+      <li><a href="#about">Craftsmanship</a></li>
+      <li><a href="#contact">Atelier</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </div>
+  </div>
+  
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- 🎨 हीरो सेक्शन 🎨 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-subtitle">Established 1925</div>
+        <h1 class="hero-title">Timeless <span>Elegance</span> Redefined</h1>
+        <p class="hero-description">Discover our exclusive collection of luxury fashion, where craftsmanship meets contemporary design. Each piece tells a story of meticulous attention to detail and unparalleled quality.</p>
+        <a href="#collections" class="btn btn-primary">Explore Collection</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Discover</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- 👜 कलेक्शन्स सेक्शन 👜 -->
+  <section class="collections section-padding" id="collections">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Our Heritage</div>
+        <h2 class="section-title">Signature Collections</h2>
+        <p class="section-description">Curated selection of timeless pieces that redefine luxury fashion, crafted from the finest materials with unparalleled attention to detail.</p>
+      </div>
+      
+      <div class="collections-grid">
+        <div class="collection-card fade-in classic-border">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Evening Wear" class="collection-image">
+          <div class="collection-overlay">
+            <h3 class="collection-name">Evening Wear</h3>
+            <div class="collection-count">24 Pieces</div>
+          </div>
+        </div>
+        
+        <div class="collection-card fade-in classic-border">
+          <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Daywear" class="collection-image">
+          <div class="collection-overlay">
+            <h3 class="collection-name">Daywear</h3>
+            <div class="collection-count">18 Pieces</div>
+          </div>
+        </div>
+        
+        <div class="collection-card fade-in classic-border">
+          <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Accessories" class="collection-image">
+          <div class="collection-overlay">
+            <h3 class="collection-name">Accessories</h3>
+            <div class="collection-count">32 Pieces</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 👗 प्रोडक्ट्स सेक्शन 👗 -->
+  <section class="products section-padding" id="products">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Featured Selection</div>
+        <h2 class="section-title">Couture Creations</h2>
+        <p class="section-description">Each piece is meticulously crafted by our master artisans, combining traditional techniques with contemporary design.</p>
+      </div>
+      
+      <div class="products-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="dresses">Dresses</button>
+        <button class="filter-btn" data-filter="suits">Suits</button>
+        <button class="filter-btn" data-filter="accessories">Accessories</button>
+        <button class="filter-btn" data-filter="shoes">Shoes</button>
+      </div>
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card fade-in" data-category="dresses">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Silk Evening Gown">
+            <div class="product-badge">New</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Evening Wear</div>
+            <h3 class="product-name">Silk Evening Gown</h3>
+            <div class="product-price">$2,850</div>
+          </div>
+          <div class="product-actions">
+            <button class="product-btn add-to-wishlist" data-id="1"><i class="far fa-heart"></i></button>
+            <button class="product-btn add-to-cart" data-id="1"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card fade-in" data-category="suits">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Wool Suit">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Tailoring</div>
+            <h3 class="product-name">Wool Suit</h3>
+            <div class="product-price">$1,950</div>
+          </div>
+          <div class="product-actions">
+            <button class="product-btn add-to-wishlist" data-id="2"><i class="far fa-heart"></i></button>
+            <button class="product-btn add-to-cart" data-id="2"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card fade-in" data-category="accessories">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Leather Bag">
+            <div class="product-badge">Bestseller</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Accessories</div>
+            <h3 class="product-name">Leather Bag</h3>
+            <div class="product-price">$1,250</div>
+          </div>
+          <div class="product-actions">
+            <button class="product-btn add-to-wishlist" data-id="3"><i class="far fa-heart"></i></button>
+            <button class="product-btn add-to-cart" data-id="3"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="product-card fade-in" data-category="shoes">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Leather Shoes">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Footwear</div>
+            <h3 class="product-name">Leather Shoes</h3>
+            <div class="product-price">
+              <span class="old-price">$850</span>
+              $750
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="product-btn add-to-wishlist" data-id="4"><i class="far fa-heart"></i></button>
+            <button class="product-btn add-to-cart" data-id="4"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#products" class="btn" style="border-color: var(--charcoal); color: var(--charcoal);">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎨 एडिटोरियल सेक्शन 🎨 -->
+  <section class="editorial section-padding" id="editorial">
+    <div class="container">
+      <div class="editorial-content">
+        <div class="editorial-image fade-in">
+          <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Editorial">
+        </div>
+        <div class="editorial-text fade-in">
+          <div class="editorial-subtitle">Our Philosophy</div>
+          <h2 class="editorial-title">The Art of Timeless Fashion</h2>
+          <p class="editorial-description">At Haute Couture, we believe true luxury lies in exceptional craftsmanship and timeless design. Each collection is a celebration of heritage techniques reinterpreted for the modern connoisseur.</p>
+          <p class="editorial-description">Our garments are created by master artisans who have dedicated their lives to perfecting their craft. From the selection of the finest fabrics to the final stitch, every detail is considered.</p>
+          <a href="#about" class="btn">Discover Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✨ फीचर्स सेक्शन ✨ -->
+  <section class="features section-padding" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Why Choose Us</div>
+        <h2 class="section-title">The Haute Couture Difference</h2>
+        <p class="section-description">We are committed to excellence in every aspect of our business, from design to delivery.</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-item fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="feature-title">Master Craftsmanship</h3>
+          <p class="feature-text">Each piece is handcrafted by artisans with decades of experience, ensuring unparalleled quality.</p>
+        </div>
+        
+        <div class="feature-item fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="feature-title">Sustainable Luxury</h3>
+          <p class="feature-text">We source only the finest sustainable materials and implement ethical practices throughout production.</p>
+        </div>
+        
+        <div class="feature-item fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-ruler"></i>
+          </div>
+          <h3 class="feature-title">Made to Measure</h3>
+          <p class="feature-text">Our bespoke service offers personalized tailoring to ensure perfect fit and individual expression.</p>
+        </div>
+        
+        <div class="feature-item fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">Worldwide Service</h3>
+          <p class="feature-text">We deliver to over 50 countries with white-glove service and complimentary alterations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📬 न्यूजलेटर सेक्शन 📬 -->
+  <section class="newsletter section-padding" id="contact">
+    <div class="container">
+      <h2 class="newsletter-title">Join Our World</h2>
+      <p class="newsletter-description">Subscribe to receive exclusive updates on new collections, private events, and special offers.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 🏛️ फुटर 🏛️ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">HAUTE COUTURE</div>
+          <p class="footer-about">Founded in 2025, Haute Couture represents the pinnacle of luxury fashion, combining timeless design with contemporary sensibility.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-heading">Collections</h3>
+          <ul class="footer-links">
+            <li><a href="#">Spring/Summer 2025</a></li>
+            <li><a href="#">Autumn/Winter 2025</a></li>
+            <li><a href="#">Bespoke Tailoring</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Archive Pieces</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Personal Styling</a></li>
+            <li><a href="#">Made to Measure</a></li>
+            <li><a href="#">Alterations</a></li>
+            <li><a href="#">Fabric Consultation</a></li>
+            <li><a href="#">Worldwide Shipping</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-heading">Contact</h3>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Chirag Delhi, South Delhi</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> +91 7983910048</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> riteshkumarbhandari85@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Haute Couture. All rights reserved. | Privacy Policy | Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🔍 सर्च मोडल 🔍 -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <span class="search-close" id="searchClose">&times;</span>
+      <h2 class="search-title">Search Our Collections</h2>
+      <form class="search-form" id="searchForm">
+        <input type="text" class="search-input" placeholder="What are you looking for?" autocomplete="off">
+        <button type="submit" class="search-submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <div class="search-results" id="searchResults" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- 🛒 कार्ट मोडल 🛒 -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 class="modal-title">Your Shopping Bag</h2>
+      
+      <div class="cart-items" id="cartItems">
+        <!-- Cart items will be added here dynamically -->
+      </div>
+      
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="cartShipping">Calculated at checkout</span>
+        </div>
+        <div class="summary-row">
+          <span>Tax</span>
+          <span id="cartTax">$0</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span id="cartTotal">$0</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">PROCEED TO CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔼 बैक टू टॉप बटन 🔼 -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <script>
+    // 📱 मोबाइल ऑप्टिमाइजेशन स्क्रिप्ट 📱
+    
+    // मोबाइल नेविगेशन टॉगल
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const navOverlay = document.getElementById('navOverlay');
+    const body = document.body;
+    
+    mobileToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+      mobileToggle.innerHTML = mobileNav.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    navOverlay.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      navOverlay.classList.remove('active');
+      body.style.overflow = 'auto';
+      mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+    
+    // मोबाइल नेविगेशन लिंक पर क्लिक करने पर मेनू बंद करें
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        body.style.overflow = 'auto';
+        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // हेडर स्क्रॉल इफेक्ट
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      const backToTop = document.getElementById('backToTop');
+      
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // बैक टू टॉप बटन दिखाएं
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+      
+      // फेड-इन एनिमेशन
+      const fadeElements = document.querySelectorAll('.fade-in');
+      fadeElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          el.classList.add('visible');
+        }
+      });
+    });
+    
+    // बैक टू टॉप फंक्शन
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // स्क्रीन ओरिएंटेशन चेंज
+    window.addEventListener('orientationchange', () => {
+      // ओरिएंटेशन चेंज होने पर थोड़ी देर रुकें
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+    
+    // टच डिवाइस के लिए हॉवर इफेक्ट्स ठीक करें
+    if ('ontouchstart' in window) {
+      // टच डिवाइस पर हॉवर स्टाइल्स को सक्रिय करें
+      document.addEventListener('touchstart', function() {}, {passive: true});
+      
+      // प्रोडक्ट कार्ड्स के लिए टच इवेंट
+      document.querySelectorAll('.product-card').forEach(card => {
+        let touchTimer;
+        
+        card.addEventListener('touchstart', function() {
+          touchTimer = setTimeout(() => {
+            this.classList.add('touch-active');
+          }, 100);
+        });
+        
+        card.addEventListener('touchend', function() {
+          clearTimeout(touchTimer);
+          this.classList.remove('touch-active');
+        });
+        
+        card.addEventListener('touchmove', function() {
+          clearTimeout(touchTimer);
+          this.classList.remove('touch-active');
+        });
+      });
+    }
+    
+    // 🔍 सर्च फंक्शनलिटी 🔍
+    const searchModal = document.getElementById('searchModal');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchClose = document.getElementById('searchClose');
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.querySelector('.search-input');
+    const searchResults = document.getElementById('searchResults');
+    
+    searchBtn.addEventListener('click', () => {
+      searchModal.style.display = 'block';
+      body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    searchClose.addEventListener('click', () => {
+      searchModal.style.display = 'none';
+      body.style.overflow = 'auto';
+      searchInput.value = '';
+      searchResults.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        searchModal.style.display = 'none';
+        body.style.overflow = 'auto';
+        searchInput.value = '';
+        searchResults.style.display = 'none';
+      }
+    });
+    
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      
+      if (query.length < 2) {
+        searchResults.innerHTML = '<p style="color: var(--gold); text-align: center; padding: 2rem;">Please enter at least 2 characters</p>';
+        searchResults.style.display = 'block';
+        return;
+      }
+      
+      // सर्च रिजल्ट्स डेमो
+      searchResults.innerHTML = `
+        <div style="margin-top: 2rem; text-align: left;">
+          <h3 style="color: var(--ivory); margin-bottom: 1.5rem; font-weight: 300; letter-spacing: 1px;">Search Results for "${query}"</h3>
+          <div style="color: var(--ivory); padding: 1.5rem; background: rgba(255,255,255,0.05);">
+            <p>Demo search functionality. In a real application, this would show actual product results.</p>
+            <p style="margin-top: 1rem; font-style: italic;">Try searching for: "dress", "suit", "bag", or "shoes"</p>
+          </div>
+        </div>
+      `;
+      searchResults.style.display = 'block';
+    });
+    
+    // 🛒 शॉपिंग कार्ट फंक्शनलिटी 🛒
+    const cartModal = document.getElementById('cartModal');
+    const cartBtn = document.getElementById('cartBtn');
+    const closeModal = document.querySelector('.close-modal');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartTotal = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const cartCount = document.getElementById('cartCount');
+    
+    let cart = [
+      { 
+        id: '1', 
+        name: 'Silk Evening Gown', 
+        price: 2850, 
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
+        quantity: 1 
+      },
+      { 
+        id: '3', 
+        name: 'Leather Bag', 
+        price: 1250, 
+        image: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
+        quantity: 1 
+      }
+    ];
+    
+    function addToCartFromId(productId) {
+      const productCard = document.querySelector(`.product-card .add-to-cart[data-id="${productId}"]`)?.closest('.product-card');
+      if (!productCard) return;
+      
+      const productName = productCard.querySelector('.product-name').textContent;
+      let productPriceText = productCard.querySelector('.product-price').textContent;
+      
+      // प्राइस पार्स करें
+      if (productPriceText.includes('$')) {
+        const priceParts = productPriceText.split('$');
+        productPriceText = priceParts[priceParts.length - 1];
+      }
+      
+      // ओल्ड प्राइस निकालें अगर है
+      if (productPriceText.includes('$')) {
+        productPriceText = productPriceText.substring(productPriceText.lastIndexOf('$') + 1);
+      }
+      
+      const productPrice = parseFloat(productPriceText.replace(',', '').trim());
+      const productImage = productCard.querySelector('img').src;
+      
+      const product = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1
+      };
+      
+      // चेक करें कि प्रोडक्ट पहले से कार्ट में है या नहीं
+      const existingItem = cart.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+      
+      updateCart();
+      showNotification(`${productName} added to cart`);
+    }
+    
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        addToCartFromId(productId);
+      });
+    });
+    
+    function updateCart() {
+      cartItemsContainer.innerHTML = '';
+      
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 3rem 0; color: var(--taupe); font-size: 1.2rem; font-style: italic;">Your cart is empty</p>';
+        cartSubtotal.textContent = '$0';
+        cartTotal.textContent = '$0';
+        cartCount.textContent = '0';
+        checkoutBtn.disabled = true;
+        checkoutBtn.style.opacity = '0.5';
+        checkoutBtn.style.cursor = 'not-allowed';
+        return;
+      }
+      
+      let subtotal = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+          <div class="cart-item-image">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="cart-item-details">
+            <h4 class="cart-item-name">${item.name}</h4>
+            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+            <div class="quantity-controls">
+              <button class="quantity-btn decrease-quantity" data-id="${item.id}">-</button>
+              <span class="quantity" style="font-weight: 500; font-size: 1.1rem;">${item.quantity}</span>
+              <button class="quantity-btn increase-quantity" data-id="${item.id}">+</button>
+            </div>
+          </div>
+          <div class="cart-item-remove remove-item" data-id="${item.id}">
+            Remove
+          </div>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+      });
+      
+      // टोटल कैलकुलेट करें
+      const tax = subtotal * 0.1;
+      const total = subtotal + tax;
+      
+      cartSubtotal.textContent = `$${subtotal.toLocaleString()}`;
+      document.getElementById('cartTax').textContent = `$${tax.toLocaleString()}`;
+      cartTotal.textContent = `$${total.toLocaleString()}`;
+      
+      // कार्ट काउंट अपडेट करें
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      checkoutBtn.disabled = false;
+      checkoutBtn.style.opacity = '1';
+      checkoutBtn.style.cursor = 'pointer';
+      
+      // क्वांटिटी बटन्स के लिए इवेंट लिसनर्स
+      document.querySelectorAll('.decrease-quantity').forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-id');
+          const item = cart.find(item => item.id === id);
+          
+          if (item.quantity > 1) {
+            item.quantity -= 1;
+          } else {
+            cart = cart.filter(item => item.id !== id);
+          }
+          
+          updateCart();
+        });
+      });
+      
+      document.querySelectorAll('.increase-quantity').forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-id');
+          const item = cart.find(item => item.id === id);
+          
+          item.quantity += 1;
+          updateCart();
+        });
+      });
+      
+      document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-id');
+          cart = cart.filter(item => item.id !== id);
+          updateCart();
+          showNotification('Item removed from cart');
+        });
+      });
+    }
+    
+    // कार्ट इनिशियलाइज़ करें
+    updateCart();
+    
+    cartBtn.addEventListener('click', () => {
+      updateCart();
+      cartModal.style.display = 'block';
+      body.style.overflow = 'hidden';
+    });
+    
+    closeModal.addEventListener('click', () => {
+      cartModal.style.display = 'none';
+      body.style.overflow = 'auto';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+        body.style.overflow = 'auto';
+      }
+    });
+    
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) return;
+      
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+      });
+      total *= 1.1;
+      
+      const confirmCheckout = confirm(`Proceed to checkout with total: $${total.toLocaleString()}?\n\nClick OK to continue.`);
+      
+      if (confirmCheckout) {
+        showNotification('Proceeding to checkout...');
+        
+        setTimeout(() => {
+          alert('Thank you for your order! Your payment of $' + total.toLocaleString() + ' has been processed successfully.\n\nOrder confirmation has been sent to your email.');
+          
+          cart = [];
+          updateCart();
+          
+          cartModal.style.display = 'none';
+          body.style.overflow = 'auto';
+        }, 1000);
+      }
+    });
+    
+    // प्रोडक्ट फिल्टरिंग
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        productCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // विशलिस्ट फंक्शनलिटी
+    document.querySelectorAll('.add-to-wishlist').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('far')) {
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          this.style.color = 'var(--gold)';
+          showNotification('Added to wishlist');
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+          this.style.color = '';
+          showNotification('Removed from wishlist');
+        }
+      });
+    });
+    
+    // न्यूजलेटर फॉर्म
+    const newsletterForm = document.getElementById('newsletterForm');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('.newsletter-input').value;
+      
+      newsletterForm.innerHTML = '<p style="color: var(--gold); font-size: 1.2rem; text-align: center; padding: 1.5rem; font-style: italic;">Thank you for subscribing to our world.</p>';
+      showNotification('Successfully subscribed to our exclusive updates');
+    });
+    
+    // नोटिफिकेशन फंक्शन
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--charcoal);
+        color: var(--ivory);
+        padding: 1rem 1.5rem;
+        z-index: 3000;
+        transform: translateX(150%);
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        border-left: 4px solid var(--gold);
+        max-width: 300px;
+        font-size: 0.9rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+      `;
+      notification.textContent = message;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+      }, 10);
+      
+      setTimeout(() => {
+        notification.style.transform = 'translateX(150%)';
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 500);
+      }, 3000);
+    }
+    
+    // इनिशियल फेड-इन चेक
+    window.dispatchEvent(new Event('scroll'));
+    
+    // लोड होने के बाद एनिमेशन ट्रिगर करें
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        window.dispatchEvent(new Event('scroll'));
+      }, 300);
+    });
+  </script>
+</body>
+</html>
